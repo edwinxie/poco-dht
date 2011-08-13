@@ -1,0 +1,5 @@
+PROJECT(node)
+
+INCLUDE_DIRECTORIES ("include")
+ADD_SUBDIRECTORY (node)
+

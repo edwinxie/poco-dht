@@ -1,0 +1,16 @@
+SET (NODE_SRC main.cpp nodeListener.cpp)
+
+# node version
+SET (NODE_VERSION_MAJOR 0)
+SET (NODE_VERSION_MINOR 0)
+SET (NODE_VERSION_BUILD 1)
+
+CONFIGURE_FILE(
+	"${PROJECT_SOURCE_DIR}/include/config.h.in"
+	"${PROJECT_BINARY_DIR}/config.h"
+)
+INCLUDE_DIRECTORIES("${PROJECT_BINARY_DIR}")
+
+ADD_EXECUTABLE (node ${NODE_SRC})
+TARGET_LINK_LIBRARIES (node PocoFoundation PocoNet PocoUtil)
+
