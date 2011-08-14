@@ -11,12 +11,9 @@
 #include <cstdlib> /* EXIT_SUCCESS */
 
 int main(int argc, char **argv) {
-    // initialize our logger:
-    NodeLogger::init("/tmp/dhtNode-core.log", "core");
-
     // spawn node listener component in a separate thread:
     NodeListener listener;
-    Poco::RunnableAdapter<NodeListener> ra(listener, &NodeListener::start);
+    Poco::RunnableAdapter<NodeListener> ra(listener, &NodeListener::runForEver);
     Poco::Thread listenThread;
     listenThread.start(ra);
 
@@ -26,6 +23,8 @@ int main(int argc, char **argv) {
 
     // wait for listener to finish:
     listenThread.join();
+
+    NodeLogger::get("core").debug("Exiting...");
 
     return (EXIT_SUCCESS);
 }

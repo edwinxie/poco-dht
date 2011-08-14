@@ -16,7 +16,7 @@ class NodeListener : public Poco::Util::ServerApplication {
         NodeListener();
         virtual ~NodeListener();
 
-        void    start();
+        void    runForEver();
         void    stop();
 
     protected:

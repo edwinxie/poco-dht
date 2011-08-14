@@ -1,4 +1,5 @@
 #include "nodeLogger.h"
+#include "config.h"
 
 NodeLogger::NodeLogger() {
 
@@ -10,12 +11,12 @@ NodeLogger::~NodeLogger() {
 
 void NodeLogger::init(const std::string &filePath, const std::string &name) {
     // file channel:
-    Poco::AutoPtr<Poco::SimpleFileChannel> pChannel(new Poco::SimpleFileChannel);
+    Poco::AutoPtr<Poco::FileChannel> pChannel(new Poco::FileChannel);
     pChannel->setProperty("path", filePath);
     pChannel->setProperty("rotation", "10 M");
-    //pChannel->setProperty("archive", "timestamp");
-    //pChannel->setProperty("compress", "true");
-    //pChannel->setProperty("purgeAge", "7 days");
+    pChannel->setProperty("archive", "timestamp");
+    pChannel->setProperty("compress", "true");
+    pChannel->setProperty("purgeAge", "7 days");
 
     // formatter:
     Poco::AutoPtr<Poco::PatternFormatter> pFrmt(new Poco::PatternFormatter);
@@ -27,6 +28,23 @@ void NodeLogger::init(const std::string &filePath, const std::string &name) {
     Poco::Logger::root().setChannel(pFrmtC);
 
     Poco::Logger &log = Poco::Logger::get(name);
-    log.information("Logger initialized.");
+    log.setLevel(DEFAULT_LOG_LEVEL);
+    log.debug("Logger initialized.");
+}
+
+/**
+ * @details descending levels: fatal, critical, error, warning, notice, information, debug, trace
+ */
+void NodeLogger::setLevel(const std::string &lvl, const std::string &name) {
+    Poco::Logger &log = Poco::Logger::get(name);
+    log.setLevel(lvl);
+}
+
+Poco::Logger &NodeLogger::get(const std::string &name) {
+    if (Poco::Logger::has(name) == NULL) {
+        NodeLogger::init(DEFAULT_LOG_FILE, name);
+    }
+
+    return (Poco::Logger::get(name));
 }
 

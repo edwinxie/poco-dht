@@ -1,5 +1,7 @@
 #include "nodeListener.h"
+#include "nodeLogger.h"
 
+#include <unistd.h> // sleep()
 #include <Poco/NObserver.h>
 #include <Poco/Exception.h>
 
@@ -12,6 +14,8 @@ NodeListener::~NodeListener() {
 }
 
 bool NodeListener::initialize(const std::string &hostPort) {
+    NodeLogger::get("core").debug("NodeListener thread initializing...");
+
     // setup & bind sock:
     _listenSockAddr = Poco::Net::SocketAddress(hostPort);
     _listenSock.bind(_listenSockAddr, true);
@@ -21,15 +25,20 @@ bool NodeListener::initialize(const std::string &hostPort) {
 
 }
 
-void NodeListener::start() {
+void NodeListener::runForEver() {
     this->initialize("0.0.0.0:4242");
     _reactorThread.start(_reactor);
-    _running = true;
-    waitForTerminationRequest();
+    this->_running = true;
+    NodeLogger::get("core").debug("NodeListener started.");
+    while (this->_running) {
+        sleep(1);
+    }
+    this->stop();
 }
 
 void NodeListener::stop() {
-    _running = false;
+    this->_running = false;
+    NodeLogger::get("core").debug("NodeListener stopping...");
     _reactor.stop();
     _reactorThread.join(); // wait for termination
 }
