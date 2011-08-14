@@ -33,14 +33,15 @@ void NodeListener::runForEver() {
     while (this->_running) {
         sleep(1);
     }
-    this->stop();
+    NodeLogger::get("core").debug("NodeListener::runForEver() exiting.");
 }
 
 void NodeListener::stop() {
+    NodeLogger::get("core").debug("NodeListener asked to stop...");
     this->_running = false;
-    NodeLogger::get("core").debug("NodeListener stopping...");
     _reactor.stop();
     _reactorThread.join(); // wait for termination
+    NodeLogger::get("core").debug("NodeListener reactor stopped.");
 }
 
 void NodeListener::onReceivePacket(const Poco::AutoPtr<Poco::Net::ReadableNotification> &notif) {
