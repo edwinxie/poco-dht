@@ -20,7 +20,7 @@ void NodeLogger::init(const std::string &filePath, const std::string &name) {
 
     // formatter:
     Poco::AutoPtr<Poco::PatternFormatter> pFrmt(new Poco::PatternFormatter);
-    pFrmt->setProperty("pattern", "%Y-%m-%d %H:%M:%S %s : %t");
+    pFrmt->setProperty("pattern", "%Y-%m-%d %H:%M:%S [%p] %s : %t");
 
     // formatting channel:
     Poco::AutoPtr<Poco::FormattingChannel> pFrmtC(new Poco::FormattingChannel(pFrmt, pChannel));
