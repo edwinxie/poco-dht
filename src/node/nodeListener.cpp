@@ -3,8 +3,8 @@
 #include <Poco/NObserver.h>
 #include <Poco/Exception.h>
 
-NodeListener::NodeListener(const std::string &hostPort) {
-    this->initialize(hostPort);
+NodeListener::NodeListener() {
+
 }
 
 NodeListener::~NodeListener() {
@@ -21,20 +21,17 @@ bool NodeListener::initialize(const std::string &hostPort) {
 
 }
 
-bool NodeListener::start() {
+void NodeListener::start() {
+    this->initialize("0.0.0.0:4242");
     _reactorThread.start(_reactor);
     _running = true;
     waitForTerminationRequest();
-
-    return (true);
 }
 
-bool NodeListener::stop() {
+void NodeListener::stop() {
     _running = false;
     _reactor.stop();
     _reactorThread.join(); // wait for termination
-
-    return (true);
 }
 
 void NodeListener::onReceivePacket(const Poco::AutoPtr<Poco::Net::ReadableNotification> &notif) {

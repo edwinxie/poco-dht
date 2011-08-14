@@ -13,11 +13,11 @@
 
 class NodeListener : public Poco::Util::ServerApplication {
     public:
-        NodeListener(const std::string &hostPort);
+        NodeListener();
         virtual ~NodeListener();
 
-        bool    start();
-        bool    stop();
+        void    start();
+        void    stop();
 
     protected:
         bool    initialize(const std::string &hostPort);
