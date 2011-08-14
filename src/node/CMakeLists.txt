@@ -1,4 +1,4 @@
-SET (NODE_SRC main.cpp nodeListener.cpp)
+SET (NODE_SRC main.cpp nodeListener.cpp nodeLogger.cpp)
 
 # node version
 SET (NODE_VERSION_MAJOR 0)
