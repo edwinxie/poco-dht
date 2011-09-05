@@ -1,5 +1,7 @@
 #include "libdht/version.h"
 
+using namespace libdht;
+
 Version::Version() {
 
 }

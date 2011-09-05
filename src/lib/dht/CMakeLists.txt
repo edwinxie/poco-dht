@@ -1,4 +1,4 @@
-SET (LIBDHT_SRC version.cpp)
+SET (LIBDHT_SRC node.cpp routingTable.cpp routingTableEntry.cpp version.cpp)
 
 # lib version
 SET (LIBDHT_VERSION_MAJOR 0)
@@ -10,7 +10,6 @@ CONFIGURE_FILE(
 	"${PROJECT_BINARY_DIR}/libdht/config.h"
 )
 INCLUDE_DIRECTORIES("${PROJECT_BINARY_DIR}")
-
 
 #ADD_LIBRARY (dht-static STATIC ${LIBDHT_SRC})
 ADD_LIBRARY (dht SHARED ${LIBDHT_SRC})
