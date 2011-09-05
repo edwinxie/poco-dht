@@ -1,5 +1,5 @@
-#include "nodeLogger.h"
-#include "config.h"
+#include "node/nodeLogger.h"
+#include "node/config.h"
 
 NodeLogger::NodeLogger() {
 

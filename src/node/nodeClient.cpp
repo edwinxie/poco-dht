@@ -1,5 +1,5 @@
-#include "nodeClient.h"
-#include "nodeLogger.h"
+#include "node/nodeClient.h"
+#include "node/nodeLogger.h"
 
 #include <unistd.h>
 

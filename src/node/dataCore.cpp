@@ -2,7 +2,7 @@
  * @file src/node/dataCore.cpp
  * @brief DataCore class implementation.
  */
-#include "dataCore.h"
+#include "node/dataCore.h"
 
 DataCore::DataCore() {
 

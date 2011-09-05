@@ -2,10 +2,10 @@
  * @file node/main.cpp
  * @brief node binary main entry point.
  */
-#include "config.h"
-#include "nodeListener.h"
-#include "nodeLogger.h"
-#include "dataCore.h"
+#include "node/config.h"
+#include "node/nodeListener.h"
+#include "node/nodeLogger.h"
+#include "node/dataCore.h"
 
 #include <Poco/Thread.h>
 #include <Poco/RunnableAdapter.h>

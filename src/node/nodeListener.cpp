@@ -1,5 +1,5 @@
-#include "nodeListener.h"
-#include "nodeLogger.h"
+#include "node/nodeListener.h"
+#include "node/nodeLogger.h"
 
 #include <unistd.h> // sleep()
 #include <Poco/NObserver.h>
