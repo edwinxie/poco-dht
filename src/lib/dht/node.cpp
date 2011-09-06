@@ -11,3 +11,7 @@ Node::~Node() {
 
 }
 
+Version *Node::getVersion() {
+    return (_version);
+}
+

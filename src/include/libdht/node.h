@@ -44,6 +44,12 @@ namespace libdht {
              */
             ~Node();
 
+            /**
+             * @brief Version getter.
+             * @return Version node's version object.
+             */
+            Version *getVersion();
+
         protected:
             /**
              * @brief host:port string where this node is reachable.
