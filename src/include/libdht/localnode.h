@@ -44,7 +44,10 @@ namespace libdht {
             ~LocalNode();
 
         protected:
-            RequestList     *_requests; /**< currently processed requests */
+            /**
+             * @brief currently processed requests.
+             */
+            RequestList     *_requests;
     };
 }
 
