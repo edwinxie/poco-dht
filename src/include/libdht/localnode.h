@@ -22,14 +22,29 @@
 #define LIBDHT_LOCALNODE_H
 
 #include "libdht/node.h"
+#include "libdht/requestlist.h"
 
 #include <string>
 
 namespace libdht {
 
+    /**
+     * @brief local node class.
+     */
     class LocalNode : public Node {
         public:
+            /**
+             * @brief default constructor.
+             */
             LocalNode(const std::string &hostPort);
+
+            /**
+             * @brief default destructor.
+             */
+            ~LocalNode();
+
+        protected:
+            RequestList     *_requests; /**< currently processed requests */
     };
 }
 
