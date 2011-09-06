@@ -41,6 +41,28 @@ namespace libdht {
              * @brief default destructor.
              */
             ~RequestList();
+
+            /**
+             * @brief returns current amount of requests in list.
+             * @return integer total number of requests in current list.
+             */
+            int count();
+
+            /**
+             * @brief clears current list of requests.
+             * @return void
+             */
+            void clear();
+
+            /**
+             * @brief appends given request to end of list.
+             * @param Request \a req request object to append to list.
+             * @return void
+             */
+            void append(Request &req);
+
+        protected:
+            std::list<Request> _requestList; /**< internal list of requests */
     };
 
 }
