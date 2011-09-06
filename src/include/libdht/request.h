@@ -23,6 +23,10 @@
 
 namespace libdht {
 
+    /**
+     * @brief base request class.
+     * @details smallest request entity - base class for inco,ing/outgoing requests.
+     */
     class Request {
         public:
             /**
