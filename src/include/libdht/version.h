@@ -23,6 +23,8 @@
 
 #include "libdht/config.h"
 
+#include <Poco/Types.h>
+
 /**
  * @namespace libdht Our main library namespace.
  * @brief main library namespace.
@@ -40,9 +42,9 @@ namespace libdht {
 
             /**
              * @brief Retrieve current version as an integer.
-             * @return integer Node version as an easy-to-compare integer.
+             * @return unsigned short Node version.
              */
-            int get();
+            Poco::UInt16 get();
     };
 
 }

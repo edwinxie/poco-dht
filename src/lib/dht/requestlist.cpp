@@ -10,8 +10,8 @@ RequestList::~RequestList() {
 
 }
 
-int RequestList::count() {
-    return (_requestList.size());
+Poco::UInt16 RequestList::count() {
+    return ( (Poco::UInt16) _requestList.size());
 }
 
 void RequestList::clear() {

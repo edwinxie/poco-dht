@@ -23,6 +23,8 @@
 
 #include "libdht/request.h"
 
+#include <Poco/Types.h>
+
 #include <list>
 
 namespace libdht {
@@ -46,7 +48,7 @@ namespace libdht {
              * @brief returns current amount of requests in list.
              * @return integer total number of requests in current list.
              */
-            int count();
+            Poco::UInt16  count();
 
             /**
              * @brief clears current list of requests.
