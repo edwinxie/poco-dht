@@ -1,4 +1,4 @@
-SET (LIBDHT_SRC localnode.cpp node.cpp request.cpp requestlist.cpp routingTable.cpp routingTableEntry.cpp version.cpp)
+SET (LIBDHT_SRC hash.cpp localnode.cpp node.cpp request.cpp requestlist.cpp routingTable.cpp routingTableEntry.cpp version.cpp)
 
 # lib version
 SET (LIBDHT_VERSION_MAJOR 0)
