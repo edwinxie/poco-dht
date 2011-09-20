@@ -21,8 +21,6 @@ Todo
 
 * node identifier class (including random-based generation for first run, ...)
 
-* fast hashing method (uniquely identifying requested content)
-
 * distance computation between two given keys
 
 * routing table lookups
