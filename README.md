@@ -31,10 +31,9 @@ Todo
 
 * outgoing request sender
 
-* ...
-
 * simple http-based management interface (including templating engine, ...) ?
 
+* ... many more things
 
 
 History
