@@ -1,7 +1,7 @@
 About
 =====
 
-Simple distributed hash table project, using poco libraries.
+Simple distributed hash table library project, using poco libraries.
 
 
 Current state
