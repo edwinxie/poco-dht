@@ -30,7 +30,6 @@ int main(int argc, char **argv) {
     clientThread.start(racli);
     core->setNodeClient(&client);
 
-
     // spawn httpd component:
 
     // wait for node client to finish:
@@ -40,6 +39,7 @@ int main(int argc, char **argv) {
     listenThread.join();
 
     NodeLogger::get("core").debug("Exiting...");
+    delete core;
 
     return (EXIT_SUCCESS);
 }
