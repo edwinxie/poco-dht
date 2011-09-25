@@ -1,22 +1,25 @@
 #ifndef NODE_LISTENER_H
 #define NODE_LISTENER_H
 
-#include <Poco/Util/ServerApplication.h>
+#include "libdht/nodeConfigIni.h"
+
 #include <Poco/Net/DatagramSocket.h>
 #include <Poco/Net/SocketAddress.h>
 #include <Poco/AutoPtr.h>
 #include <Poco/Net/SocketNotification.h>
 #include <Poco/Net/SocketReactor.h>
+#include <Poco/Runnable.h>
+#include <Poco/RWLock.h>
 #include <Poco/Thread.h>
 
 #include <string>
 
-class NodeListener : public Poco::Util::ServerApplication {
+class NodeListener : public Poco::Runnable {
     public:
-        NodeListener();
+        NodeListener(libdht::NodeConfigIni *cfg, Poco::RWLock *lock);
         virtual ~NodeListener();
 
-        void    runForEver();
+        void    run();
         void    stop();
 
     protected:
@@ -32,6 +35,9 @@ class NodeListener : public Poco::Util::ServerApplication {
 
         Poco::Net::SocketReactor    _reactor;
         Poco::Thread                _reactorThread;
+
+        libdht::NodeConfigIni       *_config;
+        Poco::RWLock                *_lock;
 };
 
 #endif /* NODE_LISTENER_H */

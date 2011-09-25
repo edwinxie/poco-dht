@@ -3,15 +3,20 @@
 
 #include <unistd.h>
 
-NodeClient::NodeClient() {
-
+NodeClient::NodeClient(libdht::NodeConfigIni *cfg, Poco::RWLock *lock) {
+    _config = cfg;
+    _lock = lock;
 }
 
 NodeClient::~NodeClient() {
 
 }
 
-void NodeClient::runForEver() {
+void NodeClient::run() {
+    _lock->writeLock(); // acquire lock
+    // TODO read client config
+    _lock->unlock(); // release lock
+
     this->_running = true;
 
     NodeLogger::get("core").debug("NodeClient started.");

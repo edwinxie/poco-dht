@@ -21,16 +21,21 @@
 #ifndef NODE_CLENT_H
 #define NODE_CLENT_H
 
+#include "libdht/nodeConfigIni.h"
+
+#include <Poco/Runnable.h>
+#include <Poco/RWLock.h>
+
 /**
  * @brief our NodeClient class.
  * @details client part of our libdht node.
  */
-class NodeClient {
+class NodeClient : public Poco::Runnable {
     public:
         /**
          * @brief default constructor.
          */
-        NodeClient();
+        NodeClient(libdht::NodeConfigIni *cfg, Poco::RWLock *lock);
 
         /**
          * @brief default destructor.
@@ -41,7 +46,7 @@ class NodeClient {
          * @brief main nodeclient loop.
          * @details will block until stop is requested.
          */
-        void runForEver();
+        void run();
 
         /**
          * @brief asks for node client stop.
@@ -50,6 +55,10 @@ class NodeClient {
 
     protected:
         bool    _running; /**< wether client node is running or not. */
+
+    private:
+        libdht::NodeConfigIni   *_config;
+        Poco::RWLock            *_lock;
 };
 
 #endif /* NODE_CLENT_H */

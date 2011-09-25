@@ -1,6 +1,5 @@
 
-#SET (NODE_SRC main.cpp nodeListener.cpp nodeLogger.cpp nodeClient.cpp dataCore.cpp)
-SET (NODE_SRC nodeApplication.cpp nodeListener.cpp nodeLogger.cpp nodeClient.cpp dataCore.cpp)
+SET (NODE_SRC main.cpp nodeListener.cpp nodeLogger.cpp nodeClient.cpp)
 
 # node version
 SET (NODE_VERSION_MAJOR 0)

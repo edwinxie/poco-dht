@@ -5,8 +5,9 @@
 #include <Poco/NObserver.h>
 #include <Poco/Exception.h>
 
-NodeListener::NodeListener() {
-
+NodeListener::NodeListener(libdht::NodeConfigIni *cfg, Poco::RWLock *lock) {
+    _config = cfg;
+    _lock = lock;
 }
 
 NodeListener::~NodeListener() {
@@ -25,7 +26,11 @@ bool NodeListener::initialize(const std::string &hostPort) {
 
 }
 
-void NodeListener::runForEver() {
+void NodeListener::run() {
+    _lock->writeLock(); // acquire lock (core/config)
+    // TODO read bindaddress from config
+    _lock->unlock(); // release lock
+
     this->initialize("0.0.0.0:4242");
     _reactorThread.start(_reactor);
     this->_running = true;
