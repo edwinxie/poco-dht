@@ -22,7 +22,7 @@
 #define LIBDHT_LOCALNODE_H
 
 #include "libdht/node.h"
-#include "libdht/requestlist.h"
+#include "libdht/requestList.h"
 
 #include <string>
 
@@ -44,10 +44,7 @@ namespace libdht {
             ~LocalNode();
 
         protected:
-            /**
-             * @brief currently processed requests.
-             */
-            RequestList     *_requests;
+            RequestList     *_requests; /**< current requests beeing processed by local node */
     };
 }
 

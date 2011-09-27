@@ -15,7 +15,7 @@
  */
 
 /**
- * @file src/include/libdht/requestlist.h
+ * @file src/include/libdht/requestList.h
  * @brief simple class keeping a list of requests together.
  */
 #ifndef LIBDHT_REQUESTLIST_H
