@@ -34,6 +34,7 @@ namespace libdht {
 
             /**
              * @brief default constructor.
+             * @details initializes internals & parses provided ini file.
              * @param std::string \a ini_file ini configuration path.
              */
             NodeConfigIni(const std::string &ini_file);
@@ -43,8 +44,21 @@ namespace libdht {
              */
             ~NodeConfigIni();
 
+            /**
+             * @brief loads configuration data from given file.
+             */
+            void Load(const std::string &ini_file);
+
+            /**
+             * @brief basic configuration sanity check.
+             * @details ensure configuration is loaded, and mandatory keys exists.
+             * @return boolean true on successful check, false otherwise.
+             */
+            bool SanityCheck();
+
         protected:
-            Poco::AutoPtr<Poco::Util::IniFileConfiguration> _config;
+            //Poco::AutoPtr<Poco::Util::IniFileConfiguration> _config;
+            Poco::Util::IniFileConfiguration    *_config;
     };
 }
 

@@ -41,8 +41,15 @@ namespace libdht {
              */
             ~NodeConfigBase();
 
+            /**
+             * @brief basic configuration sanity check.
+             * @details Not Implemented here ; overload this.
+             */
+            virtual bool SanityCheck();
+
         protected:
-            Poco::AutoPtr<Poco::Util::AbstractConfiguration> _config; /**< implementation-independant config pointer  */
+            //Poco::AutoPtr<Poco::Util::AbstractConfiguration> _config; /**< implementation-independant config pointer  */
+            Poco::Util::AbstractConfiguration   *_config;
     };
 }
 
