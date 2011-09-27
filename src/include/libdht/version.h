@@ -37,7 +37,14 @@ namespace libdht {
      */
     class Version {
         public:
+            /**
+             * @brief default constructor.
+             */
             Version();
+
+            /**
+             * @brief default destructor.
+             */
             ~Version();
 
             /**

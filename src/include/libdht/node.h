@@ -51,15 +51,8 @@ namespace libdht {
             Version *getVersion();
 
         protected:
-            /**
-             * @brief host:port string where this node is reachable.
-             */
-            std::string         _hostPort;
-
-            /**
-             * @brief node's Version.
-             */
-            Version             *_version;
+            std::string         _hostPort; /**< public ip|host & port where to reach this node */
+            Version             *_version; /**< current node version */
     };
 
 }

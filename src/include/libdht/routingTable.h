@@ -43,10 +43,7 @@ namespace libdht {
             ~RoutingTable();
 
         protected:
-            /**
-             * @brief routing table, consisting of RoutingTableEntry elements.
-             */
-            std::list<RoutingTableEntry> _routingTable;
+            std::list<RoutingTableEntry> _routingTable; /**< current node's routing table. */
     };
 
 }

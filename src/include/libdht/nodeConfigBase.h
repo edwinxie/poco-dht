@@ -26,6 +26,9 @@
 
 namespace libdht {
 
+    /**
+     * @brief base class for our various config engines.
+     */
     class NodeConfigBase {
         public:
             /**
@@ -39,7 +42,7 @@ namespace libdht {
             ~NodeConfigBase();
 
         protected:
-            Poco::AutoPtr<Poco::Util::AbstractConfiguration> _config;
+            Poco::AutoPtr<Poco::Util::AbstractConfiguration> _config; /**< implementation-independant config pointer  */
     };
 }
 
