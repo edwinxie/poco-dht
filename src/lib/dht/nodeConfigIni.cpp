@@ -31,3 +31,36 @@ bool NodeConfigIni::SanityCheck() {
     return (true);
 }
 
+std::string NodeConfigIni::getString(const std::string &key) {
+    return ("NYI");
+}
+
+std::string NodeConfigIni::getString(const std::string &key, std::string default_value) {
+    return (default_value);
+}
+
+int NodeConfigIni::getInt(const std::string &key) {
+    return (0);
+}
+
+int NodeConfigIni::getInt(const std::string &key, int default_value) {
+    return (default_value);
+}
+
+double NodeConfigIni::getDouble(const std::string &key) {
+    return ( (double) 0);
+}
+
+double NodeConfigIni::getDouble(const std::string &key, double default_value) {
+    return (default_value);
+}
+
+bool NodeConfigIni::getBool(const std::string &key) {
+    return (false);
+}
+
+bool NodeConfigIni::getBool(const std::string &key, bool default_value) {
+    return (default_value);
+}
+
+
