@@ -33,6 +33,8 @@ Todo
 
 * simple http-based management interface (including templating engine, ...) ?
 
+* proper platform checks using CMake :)
+
 * ... many more things
 
 
