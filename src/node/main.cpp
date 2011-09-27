@@ -41,10 +41,17 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
+    // exclusive lock on our shared parts (ie: config):
     Poco::RWLock lock;
 
-    // node config:
+    // initialize node config & load given configuration file:
     libdht::NodeConfigIni *config = new libdht::NodeConfigIni(argv[1]);
+
+    // ensure provided configuration file is sane:
+    if (! config->SanityCheck()) {
+        std::cout << "INVALID configuration file." << std::endl;
+        exit(1);
+    }
 
     // spawn node listener component in a separate thread:
     NodeListener *listener = new NodeListener(config, &lock);
@@ -56,7 +63,9 @@ int main(int argc, char **argv) {
     Poco::Thread clientThread;
     clientThread.start(*client);
 
-    // spawn httpd component:
+    // spawn our httpd component:
+
+    // spwan our text-based remote management console:
 
     // wait for node client to finish:
     clientThread.join();
