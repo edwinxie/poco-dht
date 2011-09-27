@@ -32,35 +32,74 @@ bool NodeConfigIni::SanityCheck() {
 }
 
 std::string NodeConfigIni::getString(const std::string &key) {
-    return ("NYI");
+    if (! _config) {
+        // TODO log me
+        return ("");
+    }
+
+    return (_config->getString(key));
 }
 
 std::string NodeConfigIni::getString(const std::string &key, std::string default_value) {
-    return (default_value);
+    if (! _config) {
+        // TODO log me
+        return (default_value);
+    }
+
+    return (_config->getString(key, default_value));
 }
 
 int NodeConfigIni::getInt(const std::string &key) {
-    return (0);
+    if (! _config) {
+        // TODO log me
+        return (0);
+    }
+
+    return (_config->getInt(key));
 }
 
 int NodeConfigIni::getInt(const std::string &key, int default_value) {
-    return (default_value);
+    if (! _config) {
+        // TODO log me
+        return (default_value);
+    }
+
+    return (_config->getInt(key, default_value));
 }
 
 double NodeConfigIni::getDouble(const std::string &key) {
-    return ( (double) 0);
+    if (! _config) {
+        // TODO log me
+        return (0);
+    }
+
+    return (_config->getDouble(key));
 }
 
 double NodeConfigIni::getDouble(const std::string &key, double default_value) {
-    return (default_value);
+    if (! _config) {
+        // TODO log me
+        return (default_value);
+    }
+
+    return (_config->getDouble(key, default_value));
 }
 
 bool NodeConfigIni::getBool(const std::string &key) {
-    return (false);
+    if (! _config) {
+        // TODO log me
+        return (false);
+    }
+
+    return (_config->getBool(key));
 }
 
 bool NodeConfigIni::getBool(const std::string &key, bool default_value) {
-    return (default_value);
-}
+    if (! _config) {
+        // TODO log me
+        return (default_value);
+    }
 
+    return (_config->getBool(key, default_value));
+}
 

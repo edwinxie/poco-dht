@@ -53,6 +53,9 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
+    // TODO use logger, DEBUG level:
+    std::cout << "Will bind udp port to " << config->getString("listener.bind_address") << std::endl;
+
     // spawn node listener component in a separate thread:
     NodeListener *listener = new NodeListener(config, &lock);
     Poco::Thread listenThread;

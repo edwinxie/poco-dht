@@ -56,17 +56,16 @@ namespace libdht {
              */
             bool SanityCheck();
 
-            virtual std::string getString(const std::string &key);
-            virtual std::string getString(const std::string &key, const std::string default_value);
-            virtual int getInt(const std::string &key);
-            virtual int getInt(const std::string &key, int default_value);
+            std::string getString(const std::string &key);
+            std::string getString(const std::string &key, const std::string default_value);
+            int getInt(const std::string &key);
+            int getInt(const std::string &key, int default_value);
 
-            virtual double getDouble(const std::string &key);
-            virtual double getDouble(const std::string &key, double default_value);
+            double getDouble(const std::string &key);
+            double getDouble(const std::string &key, double default_value);
 
-            virtual bool getBool(const std::string &key);
-            virtual bool getBool(const std::string &key, bool default_value);
-
+            bool getBool(const std::string &key);
+            bool getBool(const std::string &key, bool default_value);
 
         protected:
             Poco::Util::IniFileConfiguration    *_config; /**< current config instance */
