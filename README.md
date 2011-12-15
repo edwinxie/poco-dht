@@ -41,6 +41,8 @@ Todo
 History
 =======
 
+* December 15th 2011: added build support for cygwin, using poco libraries v1.4.2p1
+
 * September 6th 2011: initial set of simple classes, progressively modeling our basic entities.
 
 * September 5th 2011: splitted our simple node project in two parts ; simple shared library and sample node application.
